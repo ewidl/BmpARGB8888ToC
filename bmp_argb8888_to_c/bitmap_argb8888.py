@@ -185,7 +185,7 @@ class BitmapARGB8888:
 
     def _convert_decimal_to_little_endian_hex(val_dec, n_bytes=4):
         # Get hexadecimal value as big-endian.
-        str_hex = hex(val_dec)[2:]
+        str_hex = hex(val_dec)[2:].upper()
 
         # Check if hex value fits into the given number of bytes.
         if len(str_hex) > 2*n_bytes:
