@@ -9,7 +9,7 @@ TEMPLATE = '''
 #ifndef {guard}
 #define {guard}
 
-__ALIGN_BEGIN const unsigned char {name}[{array_size}UL + 1] __ALIGN_END
+const unsigned char {name}[{array_size}UL + 1] __attribute__ ((aligned (4)))
 {{
   // BITMAP FILE HEADER
   {signature}// SIGNATURE
