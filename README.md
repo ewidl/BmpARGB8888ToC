@@ -24,6 +24,8 @@ The package provides console scripts for converting bitmaps:
 
 ## Implementation details
 
+The generated C code uses the [GCC type attribute](https://gcc.gnu.org/onlinedocs/gcc-3.3/gcc/Type-Attributes.html) for 4-byte memory alignment
+
 When converting a bitmap to a C array, some applications require the [pixel array](https://en.wikipedia.org/wiki/BMP_file_format#Pixel_storage) to have a specific [memory alignment](https://www.songho.ca/misc/alignment/dataalign.html).
 For example, the [STM32CubeF7 MCU Firmware Package](https://github.com/STMicroelectronics/STM32CubeF7) requires ARGB8888-formatted pixel arrays to be 4-byte aligned.
 
@@ -32,7 +34,6 @@ Therefore, even if the start of the overall bitmap data is 4-byte aligned in mem
 When converting the bitmap file to a C array using standard tools (e.g., [Bin2C](https://www.segger.com/free-utilities/bin2c/)), the resulting pixel array is therefore not properly aligned.
 
 Packag `bmp_argb8888_to_c` solves this problem by adding an additional gap of 2 bytes between the [DIB header](https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_(bitmap_information_header)) and the pixel array when converting the bitmap.
-
 
 ## Example
 
