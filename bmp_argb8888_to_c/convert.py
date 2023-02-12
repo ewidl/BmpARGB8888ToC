@@ -26,7 +26,7 @@ def argb8888_to_c():
         '-o', '--output-file',
         default = [],
         action = 'store',
-        metavar = 'OUTPUT FILE',
+        metavar = 'OUTPUT_FILE',
         help = 'additional file to be added to the orchestrator Docker image'
     )
 
@@ -74,7 +74,7 @@ def argb8888_to_c_aligned():
         '-o', '--output-file',
         default = [],
         action = 'store',
-        metavar = 'OUTPUT FILE',
+        metavar = 'OUTPUT_FILE',
         help = 'additional file to be added to the orchestrator Docker image'
     )
 

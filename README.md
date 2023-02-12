@@ -14,12 +14,12 @@ The package provides console scripts for converting bitmaps:
 
 - Convert bitmap data to C array:
   ```
-  argb8888_to_c [-h] -i INPUT_FILE [-o EXTRA_FILE]
+  argb8888_to_c [-h] -i INPUT_FILE [-o OUTPUT_FILE]
   ```
 
 - Convert bitmap data to C array with 4-byte aligned pixel array:
   ```
-  argb8888_to_c_aligned [-h] -i INPUT_FILE [-o OUTPUT FILE]
+  argb8888_to_c_aligned [-h] -i INPUT_FILE [-o OUTPUT_FILE]
   ```
 
 ## Implementation details
