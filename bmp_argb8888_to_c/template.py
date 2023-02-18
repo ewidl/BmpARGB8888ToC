@@ -59,8 +59,8 @@ FONT_ARRAY_TEMPLATE = '''
 typedef struct _tFont_AA
 {{
   const uint8_t *table;
-  uint16_t Width;
-  uint16_t Height;
+  uint16_t width;
+  uint16_t height;
 }} sFONT_AA;
 #endif // T_FONT_AA_
 
