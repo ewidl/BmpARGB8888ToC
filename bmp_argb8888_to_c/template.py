@@ -5,7 +5,7 @@ ELEMENT_SEPARATOR = str(' ')
 TEMPLATE_LINE_SEPARATOR = str('\n  ')
 
 # Template for C array (with include guards).
-TEMPLATE = '''
+ARRAY_TEMPLATE = '''
 #ifndef {guard}
 #define {guard}
 
@@ -45,4 +45,40 @@ const unsigned char {name}[{array_size}UL + 1] __attribute__ ((aligned (4)))
 }};
 
 #endif // {guard}
+'''
+
+
+# Template for C array for anti-aliased fonts (with include guards).
+FONT_ARRAY_TEMPLATE = '''
+#ifndef {guard}
+#define {guard}
+
+#ifndef T_FONT_AA_
+#define T_FONT_AA_
+// Struct for anti-aliased monospace fonts.
+typedef struct _tFont_AA
+{{
+  const uint8_t *table;
+  uint16_t Width;
+  uint16_t Height;
+}} sFONT_AA;
+#endif // T_FONT_AA_
+
+const uint8_t {name}_table[] =
+{{
+{fonts_array}
+}};
+
+sFONT_AA {name} = {{
+  {name}_table,
+  {font_width}, // Font width
+  {font_heigth} // Font heigth
+}};
+
+#endif // {guard}
+'''
+
+SINGLE_FONT_TEMPLATE = '''
+  // @{pos}
+  {font_data}
 '''

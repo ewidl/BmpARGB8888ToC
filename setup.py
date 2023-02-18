@@ -11,6 +11,7 @@ setup(
         'console_scripts': [
             'argb8888_to_c = bmp_argb8888_to_c.convert:argb8888_to_c',
             'argb8888_to_c_aligned = bmp_argb8888_to_c.convert:argb8888_to_c_aligned',
+            'argb8888_to_c_font = bmp_argb8888_to_c.convert:argb8888_to_c_font',
         ]
     },
     description = 'Read content of bitmap file in ARGB8888 format and convert to C array.',
