@@ -14,7 +14,12 @@ The package provides console scripts for converting bitmaps:
 
 - Convert bitmap data to C array:
   ```
-  argb8888_to_c [-h] -i INPUT_FILE [-o OUTPUT_FILE]
+  argb8888_to_c [-h] [-o OUTPUT_FILE] INPUT_FILE
+  ```
+
+- Convert bitmap data to C array with 4-byte aligned pixel array:
+  ```
+  argb8888_to_c_aligned [-h] [-o OUTPUT_FILE] INPUT_FILE
   ```
 
 - Convert bitmap data to C array with 4-byte aligned pixel array:
@@ -22,7 +27,14 @@ The package provides console scripts for converting bitmaps:
   argb8888_to_c_aligned [-h] -i INPUT_FILE [-o OUTPUT_FILE]
   ```
 
+- Read content of a bitmap file and convert it to a C array for anti-aliased monospace fonts:
+  ```
+  argb8888_to_c_font [-h] [-o OUTPUT_FILE] INPUT_FILE FONT_HEIGHT FONT_WIDTH
+  ```
+
 ## Implementation details
+
+### Bitmaps to C arrays
 
 The generated C code uses the [GCC type attribute](https://gcc.gnu.org/onlinedocs/gcc-3.3/gcc/Type-Attributes.html) for 4-byte memory alignment
 
@@ -34,6 +46,12 @@ Therefore, even if the start of the overall bitmap data is 4-byte aligned in mem
 When converting the bitmap file to a C array using standard tools (e.g., [Bin2C](https://www.segger.com/free-utilities/bin2c/)), the resulting pixel array is therefore not properly aligned.
 
 Packag `bmp_argb8888_to_c` solves this problem by adding an additional gap of 2 bytes between the [DIB header](https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_(bitmap_information_header)) and the pixel array when converting the bitmap.
+
+### Bitmaps to fonts
+
+The extracted C array contains the transparency information for each pixel of each font (from top left to bottom right for each pixel).
+This can be used as mask for creating anit-aliased fonts on a screen.
+The expected input is a bitmap with all the fonts in a single row (in ASCII-order).
 
 ## Example
 
