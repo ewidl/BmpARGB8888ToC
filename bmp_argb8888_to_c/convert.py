@@ -148,7 +148,7 @@ def argb8888_to_c_font():
         bmp_file = bmp.file_name
 
         out = bmp.as_c_font()
-        out_file = args.output_file or (bmp_file.stem + '.h')
+        out_file = args.output_file or (bmp_file.stem + '.c')
 
         with open(out_file, 'w') as file:
             file.write(out)
