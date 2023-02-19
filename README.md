@@ -22,11 +22,6 @@ The package provides console scripts for converting bitmaps:
   argb8888_to_c_aligned [-h] [-o OUTPUT_FILE] INPUT_FILE
   ```
 
-- Convert bitmap data to C array with 4-byte aligned pixel array:
-  ```
-  argb8888_to_c_aligned [-h] -i INPUT_FILE [-o OUTPUT_FILE]
-  ```
-
 - Read content of a bitmap file and convert it to a C array for anti-aliased monospace fonts:
   ```
   argb8888_to_c_font [-h] [-o OUTPUT_FILE] INPUT_FILE FONT_HEIGHT FONT_WIDTH
