@@ -22,7 +22,7 @@ class BitmapToArray(BitmapARGB8888):
 
         # Define function for concatenation.
         separator = ',{}'.format(ELEMENT_SEPARATOR)
-        convert = lambda x: separator.join(convert_hex_string_to_c_array_elements(x))
+        convert = lambda x: separator.join(convert_hex_string_to_c_array_elements(x)) + separator
 
         return ARRAY_TEMPLATE.format(
             name = name,
@@ -81,7 +81,7 @@ class BitmapToArray(BitmapARGB8888):
 
         # Define function for concatenation.
         separator = ',{}'.format(ELEMENT_SEPARATOR)
-        convert = lambda x: separator.join(convert_hex_string_to_c_array_elements(x))
+        convert = lambda x: separator.join(convert_hex_string_to_c_array_elements(x)) + separator
 
         return ARRAY_TEMPLATE.format(
             name = name,
