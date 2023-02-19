@@ -54,7 +54,7 @@ class BitmapToFont(BitmapARGB8888):
 
         # Define function for concatenation.
         separator = ',{}'.format(ELEMENT_SEPARATOR)
-        convert = lambda x: blockify(separator.join(x), n=self.font_width)
+        convert = lambda x: blockify(separator.join(x), n=self.font_width) + separator
 
         # Generate C sub-array for each font.
         single_font_arrays = [
